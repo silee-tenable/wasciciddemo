@@ -18,7 +18,7 @@ jobs:
       - name: Run WAS
         run: |
           docker pull tenable/was-scanner:latest
-          docker run -v $(pwd):/scanner -t -e WAS_MODE=cicd -e ACCESS_KEY=${e50639f7f4a777596e9fc0c15a50dff73068e166aed7f69b0a1f48119459e7cb} -e SECRET_KEY=${f5f52b8466a9fa9728a55f057d13dfedd7acee61391c17002d4beff9c4bc5bca} --link petstore tenable/was-scanner:latest || true
+          docker run -v $(pwd):/scanner -t -e WAS_MODE=cicd -e ACCESS_KEY=$e50639f7f4a777596e9fc0c15a50dff73068e166aed7f69b0a1f48119459e7cb -e SECRET_KEY=$f5f52b8466a9fa9728a55f057d13dfedd7acee61391c17002d4beff9c4bc5bca --link petstore tenable/was-scanner:latest || true
           ls $(pwd)
         env:
           ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
